@@ -1,7 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity" />
+    tools:context=".MainActivity">
+
+
+
+    <TextView
+        android:id="@+id/home_page_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="-40dp"
+        android:text="Digiboard"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="italic"
+        android:textSize="50sp" />
+
+    <ImageView
+        android:id="@+id/home_page_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/home_page_title"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:src="@drawable/digiboard_bg" />
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_start_drawing"
+        android:background="@color/colorPrimaryDark"
+        android:layout_below="@id/home_page_bg"
+        android:layout_centerHorizontal="true"
+        android:text="Start Drawing"
+        android:textColor="@android:color/white"
+        />
+    <Button
+        android:id="@+id/btn_preferences"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:layout_below="@id/btn_start_drawing"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="Preferences"
+        android:textColor="@android:color/white"
+        />
+    <Button
+        android:id="@+id/btn_exit"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_red_dark"
+        android:layout_below="@id/btn_preferences"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="Exit"
+        android:textColor="@android:color/white"
+        />
+
+
+
+</RelativeLayout>
