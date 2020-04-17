@@ -19,16 +19,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
 
-        btnExit = findViewById(R.id.btn_exit);
         btnStart = findViewById(R.id.btn_start_drawing);
         btnPref = findViewById(R.id.btn_preferences);
 
-        btnExit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                MainActivity.super.onBackPressed();
-            }
-        });
 
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override

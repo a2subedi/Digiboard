@@ -34,7 +34,7 @@ public class Drawing extends View {
         mPaint.setAntiAlias(true);
         mPaint.setColor(Color.BLACK);
         mPaint.setStyle(Paint.Style.STROKE);
-        mPaint.setStrokeWidth(40f);
+        mPaint.setStrokeWidth(75f);
         mPaint.setStrokeJoin(Paint.Join.ROUND);
 
     }

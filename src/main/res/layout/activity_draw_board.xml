@@ -10,41 +10,33 @@
     tools:context=".DrawBoard">
 
 
-    <TextView
-        android:id="@+id/home_page_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Draw Symbol"
-        android:textAlignment="center"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="40sp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <!--    <TextView-->
+    <!--        android:id="@+id/home_page_title"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="Draw Symbol"-->
+    <!--        android:textAlignment="center"-->
+    <!--        android:textColor="@color/colorPrimaryDark"-->
+    <!--        android:textSize="40sp"-->
+    <!--        android:textStyle="italic"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
-    <TextView
-        android:layout_width="142dp"
-        android:layout_height="27dp"
-        android:textColor="@android:color/black"
-        android:text="Select type:"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/home_page_title" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="162dp"
         android:layout_height="36dp"
-        android:layout_marginTop="28dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/home_page_title">
+        app:layout_constraintTop_toTopOf="parent">
 
         <RadioButton
             android:id="@+id/radio_train"
             android:layout_width="wrap_content"
-            android:checked="true"
             android:layout_height="wrap_content"
+            android:checked="true"
             android:text="Train" />
 
         <RadioButton
@@ -59,51 +51,49 @@
         android:id="@+id/et_Label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="20dp"
         android:cursorVisible="false"
-        android:layout_marginTop="28dp"
         android:hint="digit/symbol label"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/home_page_title" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.bhaire.digiboard.Drawing
         android:id="@+id/canvas_square"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="144dp"
+        android:layout_marginTop="60dp"
         app:layout_constraintDimensionRatio="H,1:1"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+    <Button
+        android:id="@+id/save_scr"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/clr_scr"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="save"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/canvas_square" />
+
     <Button
         android:id="@+id/clr_scr"
-        android:layout_width="300dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="28dp"
         android:backgroundTint="@color/colorAccent"
         android:text="Clear"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/save_scr"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/clr_scr"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
-        android:backgroundTint="@color/colorPrimary"
-        android:text="save"
-        app:layout_constraintBottom_toTopOf="@+id/clr_scr"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/canvas_square"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/save_scr"
+        app:layout_constraintVertical_bias="0.17" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
