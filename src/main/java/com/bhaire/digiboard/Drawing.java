@@ -1,4 +1,5 @@
 package com.bhaire.digiboard;
+
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -35,6 +36,7 @@ public class Drawing extends View {
         mPaint.setColor(Color.BLACK);
         mPaint.setStyle(Paint.Style.STROKE);
         mPaint.setStrokeWidth(75f);
+        mPaint.setAntiAlias(true);
         mPaint.setStrokeJoin(Paint.Join.ROUND);
 
     }
@@ -50,7 +52,7 @@ public class Drawing extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawColor(Color.rgb(240,245,240));
+        canvas.drawColor(Color.rgb(230, 235, 230));
         canvas.drawPath(path, mPaint);
 
     }
@@ -61,26 +63,7 @@ public class Drawing extends View {
         my = y;
     }
 
-    public void clearCanvas() {
-        path.reset();
-        invalidate();
-    }
 
-    public void saveCanvas(String filename,String imageType) throws FileNotFoundException {
-        try {
-            File dir = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+"/digiboard/"+imageType);
-            dir.mkdirs();
-            String fullpath = dir.getAbsolutePath()+"/"+ filename;
-
-            OutputStream stream = new FileOutputStream(fullpath);
-            getBitmap().compress(Bitmap.CompressFormat.JPEG, 50, stream);
-            stream.close();
-            clearCanvas();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
     private void upTouch() {
         path.lineTo(mx, my);
@@ -115,18 +98,42 @@ public class Drawing extends View {
                 moveTouch(x, y);
                 invalidate();
                 break;
+
+
         }
         return true;
     }
 
-    public Bitmap getBitmap()
-    {
+    public Bitmap getBitmap() {
         this.setDrawingCacheEnabled(true);
         this.buildDrawingCache();
         Bitmap bmp = Bitmap.createBitmap(this.getDrawingCache());
         this.setDrawingCacheEnabled(false);
 
         return bmp;
+    }
+
+    public void clearCanvas() {
+        path.reset();
+        invalidate();
+    }
+
+    public void saveCanvas(String filename, String imageType) throws FileNotFoundException {
+//        TODO move save logic to parent. helper class return bitmap of canvas
+        try {
+            File dir = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/digiboard/" + imageType);
+            dir.mkdirs();
+            String fullpath = dir.getAbsolutePath() + "/" + filename;
+
+            OutputStream stream = new FileOutputStream(fullpath);
+            Bitmap srcShot = Bitmap.createScaledBitmap(getBitmap(),60,60,false);
+            srcShot.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+            stream.close();
+            clearCanvas();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
 
